@@ -14,7 +14,9 @@
 	$rootScope.$on('updateNote', function(){
 		
 	})
-}]]></client_script>
+}
+
+]]></client_script>
         <controller_as>c</controller_as>
         <css/>
         <data_table>sp_instance</data_table>
@@ -31,7 +33,7 @@
         <public>false</public>
         <roles/>
         <script><![CDATA[(function() {
-	//create an array to populate without notes
+	
 	data.notes = [];
 	var noteGR = new GlideRecord('x_snc_createnotes_note');
 	noteGR.addQuery('user', gs.getUser().getID());
@@ -39,11 +41,11 @@
 	noteGR.query();
 	while (noteGR.next()) {
 		var noteObj = {};
-		//use service portal helper method to get some display values
+		
 		$sp.getRecordDisplayValues(noteObj, noteGR, 'number,title,sys_id');
-		//get the first 20 characters of the description
+		
 		noteObj.note = noteGR.getValue('note').slice(0,20);
-		//push the populated obj into the array
+		
 		data.notes.push(noteObj);
 	}
 })();]]></script>
@@ -52,14 +54,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2018-10-16 08:01:47</sys_created_on>
         <sys_id>446105bb4f4d23006826aa95d310c754</sys_id>
-        <sys_mod_count>7</sys_mod_count>
+        <sys_mod_count>8</sys_mod_count>
         <sys_name>Notes List</sys_name>
         <sys_package display_value="CreateNotes" source="x_snc_createnotes">df5fd9a5090232007f44e1046c8ff69f</sys_package>
         <sys_policy/>
         <sys_scope display_value="CreateNotes">df5fd9a5090232007f44e1046c8ff69f</sys_scope>
         <sys_update_name>sp_widget_446105bb4f4d23006826aa95d310c754</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2018-10-16 09:58:41</sys_updated_on>
+        <sys_updated_on>2018-10-16 10:09:18</sys_updated_on>
         <template><![CDATA[<div class="panel panel-default">
   <div class="panel-heading clearfix">
     <h3 class="panel-title pull-left">
